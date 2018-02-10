@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Grid, Col, Row } from "react-styled-flexboxgrid";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Posts from "./pages/Posts";
+import Post from "./pages/Post";
 
 const About = () => (
   <div>
@@ -50,6 +52,8 @@ const App = () => (
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/topics" component={Topics} />
+          <Route path="/posts" component={Posts} />
+          <Route path="/post" component={Post} />
         </Grid>
       </Grid>
     </React.Fragment>
