@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Grid, Col, Row } from "react-styled-flexboxgrid";
+import { Grid, Col, Row } from "./components/FlexboxGrid";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Posts from "./pages/Posts";
@@ -43,19 +43,22 @@ const Topics = ({ match }) => (
   </div>
 );
 
+const Frame = styled(Grid)`
+  width: 800px;
+  padding-top: 1rem;
+`;
+
 const App = () => (
   <Router>
     <React.Fragment>
       <Navbar />
-      <Grid fluid={true}>
-        <Grid>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/topics" component={Topics} />
-          <Route path="/posts" component={Posts} />
-          <Route path="/post" component={Post} />
-        </Grid>
-      </Grid>
+      <Frame>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/topics" component={Topics} />
+        <Route path="/posts" component={Posts} />
+        <Route path="/post" component={Post} />
+      </Frame>
     </React.Fragment>
   </Router>
 );

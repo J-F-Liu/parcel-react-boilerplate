@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Grid, Col, Row } from "react-styled-flexboxgrid";
+import { Grid, Col, Row } from "./FlexboxGrid";
 
 const Bar = styled(Grid)`
   background-color: #f3f3f4;
@@ -15,16 +15,20 @@ const NavLink = styled(Link)`
   margin-bottom: 1.2rem;
 `;
 
+const Frame = styled(Grid)`
+  width: 800px;
+`;
+
 const Navbar = () => (
-  <Bar fluid={true}>
-    <Grid>
+  <Bar>
+    <Frame>
       <Row>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/topics">Topics</NavLink>
         <NavLink to="/posts">Posts</NavLink>
       </Row>
-    </Grid>
+    </Frame>
   </Bar>
 );
 

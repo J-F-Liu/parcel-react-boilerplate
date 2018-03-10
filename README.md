@@ -2,10 +2,10 @@
 
 Build React.js project using Parcel, also includes:
 
+* reboot.css
 * styled-components
 * react-router 4.2
 * axios
-* react-styled-flexboxgrid
 
 # Usage
 
