@@ -1,66 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Grid, Col, Row } from "./components/FlexboxGrid";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Posts from "./pages/Posts";
-import Post from "./pages/Post";
 
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-);
-
-const Topic = ({ match }) => (
-  <div>
-    <h3>{match.params.topicId}</h3>
-  </div>
-);
-
-const Topics = ({ match }) => (
-  <div>
-    <h2>Topics</h2>
-    <ul>
-      <li>
-        <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/components`}>Components</Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-      </li>
-    </ul>
-
-    <Route path={`${match.url}/:topicId`} component={Topic} />
-    <Route
-      exact
-      path={match.url}
-      render={() => <h3>Please select a topic.</h3>}
-    />
-  </div>
-);
-
-const Frame = styled(Grid)`
-  width: 800px;
-  padding-top: 1rem;
+const Box = styled.div`
+  width: 50%;
+  border: 1px solid gray;
+  padding: 15px;
+  margin: 20px auto;
 `;
 
-const App = () => (
-  <Router>
-    <React.Fragment>
-      <Navbar />
-      <Frame>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/topics" component={Topics} />
-        <Route path="/posts" component={Posts} />
-        <Route path="/post" component={Post} />
-      </Frame>
-    </React.Fragment>
-  </Router>
-);
+function Counter({ initialCount }) {
+  const [count, setCount] = useState(initialCount);
+  return (
+    <Box>
+      <h3>Count: {count}</h3>
+      <button onClick={() => setCount(initialCount)}>Reset</button>
+      <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
+      <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
+    </Box>
+  );
+}
 
-export default App;
+export default function App() {
+  return <Counter initialCount={0} />;
+}
