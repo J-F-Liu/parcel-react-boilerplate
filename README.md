@@ -9,9 +9,10 @@ Build React.js project using Parcel, also includes:
 # Usage
 
 ```
-git clone https://github.com/J-F-Liu/parcel-react-boilerplate.git your-project
+git clone --depth 1 https://github.com/J-F-Liu/parcel-react-boilerplate.git your-project
 cd your-project
 yarn
 yarn start
 yarn build
+yarn lint
 ```
