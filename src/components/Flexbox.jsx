@@ -1,10 +1,5 @@
 import styled, { css } from "styled-components";
 
-export const Grid = styled.div`
-  margin-right: auto;
-  margin-left: auto;
-`;
-
 const HorizontalAlign = {
   left: "flex-start",
   center: "center",
